@@ -1,0 +1,71 @@
+# WordPress specific files
+wp-config.php
+wp-config-local.php
+wp-content/advanced-cache.php
+wp-content/backup-db/
+wp-content/backups/
+wp-content/blogs.dir/
+wp-content/cache/
+wp-content/upgrade/
+wp-content/uploads/
+wp-content/mu-plugins/
+wp-content/wp-cache-config.php
+wp-content/plugins/hello.php
+
+# WordPress core
+/wp-admin/
+/wp-includes/
+/wp-*.php
+/index.php
+/xmlrpc.php
+/license.txt
+/readme.html
+
+# Configuration files
+.htaccess
+.htpasswd
+
+# Log files
+*.log
+error_log
+access_log
+
+# Cache files
+.sass-cache/
+*.css.map
+*.sass.map
+*.scss.map
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor directories and files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+
+# Node modules and build artifacts
+/node_modules/
+/dist/
+/build/
+
+# Composer
+/vendor/
+composer.phar
+
+# Docker
+.docker/data/ 
