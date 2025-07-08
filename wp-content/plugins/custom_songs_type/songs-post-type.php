@@ -196,5 +196,25 @@ function author_save_postdata($post_id) {
     
 }
 
-// Uncomment the next line to manually flush rewrite rules, then comment it out again
-// add_action('init', 'song_flush_rewrite_rules', 20);
+function display_contact_form() {
+	ob_start();
+	?>
+	<form>
+		<p>
+			<label for="song-name">Name</label><br>
+			<input type="text" id="song-name" name="name" required>
+		</p>
+		<p>
+			<label for="song-email">Email</label><br>
+			<input type="email" id="song-email" name="email" required>
+		</p>
+		<p>
+			<input type="submit" value="Submit">
+		</p>
+	</form>
+	<?php
+	return ob_get_clean(); 
+}
+add_shortcode( 'song_contact_form', 'display_contact_form' );
+
+
