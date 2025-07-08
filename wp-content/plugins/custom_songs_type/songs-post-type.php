@@ -9,6 +9,9 @@ Author: lucas
 add_action( 'init', 'custom_post_custom_songs' );
 // The custom function to register a custom song post type
 function custom_post_custom_songs() {
+    // Debug: Log that this function is being called
+    error_log('Custom post type function called');
+    
     // Set the labels. This variable is used in the $args array
     $labels = array(
         'name'               => __( 'Songs' ),
@@ -34,11 +37,15 @@ function custom_post_custom_songs() {
         'show_in_admin_bar' => true,
         'show_in_nav_menus' => true,
         'query_var'         => true,
+        'rewrite'           => array('slug' => 'song'),
     );
     // Call the actual WordPress function
     // Parameter 1 is a name for the post type
     // Parameter 2 is the $args array
     register_post_type('song', $args);
+    
+    // Debug: Log that post type was registered
+    error_log('Song post type registered with slug: song');
 }
 
 // Register Song Genre Taxonomy
@@ -188,3 +195,6 @@ function author_save_postdata($post_id) {
     } 
     
 }
+
+// Uncomment the next line to manually flush rewrite rules, then comment it out again
+// add_action('init', 'song_flush_rewrite_rules', 20);

@@ -68,4 +68,12 @@ Thumbs.db
 composer.phar
 
 # Docker
-.docker/data/ 
+.docker/data/
+
+# Exclude all plugins except custom ones
+/wp-content/plugins/*
+!/wp-content/plugins/custom_songs_type/
+
+# Exclude all themes except custom ones
+/wp-content/themes/*
+!/wp-content/themes/twentywentyfive-child/ 
