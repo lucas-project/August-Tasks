@@ -24,8 +24,7 @@ services:
       - "8080:80"
     restart: always
     volumes:
-      - wordpress_data:/var/www/html
-      - ./wp-content:/var/www/html/wp-content
+      - ./:/var/www/html
     environment:
       WORDPRESS_DB_HOST: db
       WORDPRESS_DB_USER: wordpress
@@ -40,4 +39,3 @@ networks:
 
 volumes:
   db_data:
-  wordpress_data:
