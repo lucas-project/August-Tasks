@@ -68,7 +68,10 @@ function create_genre_taxonomy() {
     );
 
     register_taxonomy( 'genre', array( 'song' ), $args );
+    // Create default genre terms if they don't exist
+    if (!term_exists('Classical', 'genre')) {
+        wp_insert_term('Classical', 'genre');
+    }
 }
 
 
-    
