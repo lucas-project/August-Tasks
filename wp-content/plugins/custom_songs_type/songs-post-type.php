@@ -169,19 +169,22 @@ function author_save_postdata($post_id) {
 
     /* OK, it is safe to save the data now. */
     // Sanitize user input.
-    $mydata = sanitize_text_field( $_POST['author_name'] );
-    $mydata = sanitize_text_field( $_POST['release_date'] );
-    $mydata = sanitize_text_field( $_POST['duration'] );
-    $mydata = sanitize_text_field( $_POST['featured_artists'] );
-    $mydata = sanitize_text_field( $_POST['producer'] );
-    $mydata = sanitize_text_field( $_POST['lyrics'] );
-    
-    // Update the meta field in the database.
-    update_post_meta( $post_id, 'Author_Name', $_POST['Author_Name'] ); 
-    update_post_meta( $post_id, 'release_date', $_POST['release_date'] ); 
-    update_post_meta( $post_id, 'duration', $_POST['duration'] ); 
-    update_post_meta( $post_id, 'featured_artists', $_POST['featured_artists'] ); 
-    update_post_meta( $post_id, 'producer', $_POST['producer'] ); 
-    update_post_meta( $post_id, 'lyrics', $_POST['lyrics'] ); 
+    // Define fields to save
+   $meta_fields = array(
+    'author_name' => 'sanitize_text_field',
+    'release_date' => 'sanitize_text_field',
+    'duration' => 'sanitize_text_field',
+    'featured_artists' => 'sanitize_text_field',
+    'producer' => 'sanitize_text_field',
+    'lyrics' => 'sanitize_textarea_field'
+   );
+
+   // Save each field with appropriate sanitization
+   foreach ($meta_fields as $field => $sanitize_callback) {
+      if (isset($_POST[$field])) {
+          $value = $sanitize_callback($_POST[$field]);
+          update_post_meta($post_id, $field, $value);
+      }
+    } 
     
 }
