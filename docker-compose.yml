@@ -33,6 +33,15 @@ services:
       WORDPRESS_DEBUG: 1
     networks:
       - wpsite
+      
+  adminer:
+    image: adminer:latest
+    ports:
+      - "8081:8080"
+    depends_on:
+      - db
+    networks:
+      - wpsite
 
 networks:
   wpsite:

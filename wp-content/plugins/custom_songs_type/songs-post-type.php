@@ -96,6 +96,13 @@ function song_meta_box_styles( $hook ) {
     }
 }
 
+// Enqueue frontend styles
+add_action( 'wp_enqueue_scripts', 'song_frontend_styles' );
+function song_frontend_styles() {
+    // Enqueue the CSS file for frontend
+    wp_enqueue_style( 'song-frontend-styles', plugins_url( 'css/meta-box-style.css', __FILE__ ) );
+}
+
 // Add meta box 
 add_action("add_meta_boxes", "add_song_meta_box");
 
@@ -197,24 +204,98 @@ function author_save_postdata($post_id) {
 }
 
 function display_contact_form() {
+	// Add debugging
+	error_log('Song contact form shortcode called');
+	
 	ob_start();
 	?>
-	<form>
-		<p>
-			<label for="song-name">Name</label><br>
-			<input type="text" id="song-name" name="name" required>
-		</p>
-		<p>
-			<label for="song-email">Email</label><br>
-			<input type="email" id="song-email" name="email" required>
-		</p>
-		<p>
-			<input type="submit" value="Submit">
-		</p>
-	</form>
+	<div class="song-contact-form-container">
+		<form id="song-contact-form" method="post">
+			<p>
+				<label for="song-name">Name</label><br>
+				<input type="text" id="song-name" name="name" required>
+			</p>
+			<p>
+				<label for="song-email">Email</label><br>
+				<input type="email" id="song-email" name="email" required>
+			</p>
+			<p>
+				<button type="submit">Submit</button>
+			</p>
+            <div id="song-form-response" style="margin-top: 15px;"></div>
+		</form>
+	</div>
+    <script>
+	document.getElementById('song-contact-form').addEventListener('submit', function(e) {
+		e.preventDefault();
+		
+		const name = document.getElementById('song-name').value;
+		const email = document.getElementById('song-email').value;
+		const responseDiv = document.getElementById('song-form-response');
+		
+		responseDiv.innerHTML = 'Submitting...';
+		
+		fetch('<?php echo esc_url_raw(rest_url('custom_song/v1/form-submissions')); ?>', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				'X-WP-Nonce': '<?php echo wp_create_nonce('wp_rest'); ?>'
+			},
+			body: JSON.stringify({
+				name: name,
+				email: email
+			})
+		})
+		.then(response => response.json())
+		.then(data => {
+			responseDiv.innerHTML = '<div style="color: green;">Thank you! Your submission was successful.</div>';
+			document.getElementById('song-contact-form').reset();
+		})
+		.catch(error => {
+			responseDiv.innerHTML = '<div style="color: red;">Error submitting form. Please try again.</div>';
+			console.error('Error:', error);
+		});
+	});
+	</script>
 	<?php
 	return ob_get_clean(); 
 }
 add_shortcode( 'song_contact_form', 'display_contact_form' );
+
+// Add the REST API route
+add_action( 'rest_api_init', function () {
+    register_rest_route( 'custom_song/v1', '/form-submissions', array(
+        'methods' => 'POST',
+        'callback' => 'handle_form_submission',
+    ) );
+} );
+
+// Function to handle form submissions
+function handle_form_submission( WP_REST_Request $request ) {
+    $name = sanitize_text_field( $request->get_param('name') );
+    $email = sanitize_email( $request->get_param('email') );
+
+    // Create a new post of type 'form_submission'
+    $submission_data = array(
+        'post_title'   => $name,
+        'post_content' => '', 
+        'post_status'  => 'publish',
+        'post_type'    => 'form_submission',
+    );
+
+    // Insert the post into the database
+    $post_id = wp_insert_post( $submission_data );
+
+    // Save additional metadata
+    if ( $post_id ) {
+        update_post_meta( $post_id, 'name', $name );
+        update_post_meta( $post_id, 'email', $email );
+    }
+
+    return new WP_REST_Response( array(
+        'message' => 'Form submission received successfully.',
+        'id' => $post_id,
+    ), 200 );
+}
 
 
