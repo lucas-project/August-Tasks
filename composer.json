@@ -7,12 +7,17 @@
         {
             "type": "vcs",
             "url": "https://github.com/lucas-project/songs-plugin.git"
+        },
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org"
         }
     ],
     "require": {
         "php": ">=7.4",
         "composer/installers": "^2.0",
-        "lucas-project/songs-plugin": "1.0.3"
+        "lucas-project/songs-plugin": "1.0.4",
+        "wpackagist-plugin/advanced-custom-fields": "^6.4"
     },
     "extra": {
         "installer-paths": {

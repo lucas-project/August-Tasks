@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9a00632ac14e86f5f1b681b583045929",
+    "content-hash": "6c2ae0c59b44d589f513141c9d83a8a5",
     "packages": [
         {
             "name": "composer/installers",
@@ -154,16 +154,16 @@
         },
         {
             "name": "lucas-project/songs-plugin",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/lucas-project/songs-plugin.git",
-                "reference": "31ce2777304eb9d4df1922817b029560d430a918"
+                "reference": "66bc25e55b72f6142ccd38756093834709b1a185"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lucas-project/songs-plugin/zipball/31ce2777304eb9d4df1922817b029560d430a918",
-                "reference": "31ce2777304eb9d4df1922817b029560d430a918",
+                "url": "https://api.github.com/repos/lucas-project/songs-plugin/zipball/66bc25e55b72f6142ccd38756093834709b1a185",
+                "reference": "66bc25e55b72f6142ccd38756093834709b1a185",
                 "shasum": ""
             },
             "require": {
@@ -187,10 +187,28 @@
                 "wordpress"
             ],
             "support": {
-                "source": "https://github.com/lucas-project/songs-plugin/tree/1.0.3",
+                "source": "https://github.com/lucas-project/songs-plugin/tree/1.0.4",
                 "issues": "https://github.com/lucas-project/songs-plugin/issues"
             },
-            "time": "2025-07-09T11:23:27+00:00"
+            "time": "2025-07-09T12:39:42+00:00"
+        },
+        {
+            "name": "wpackagist-plugin/advanced-custom-fields",
+            "version": "6.4.2",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/advanced-custom-fields/",
+                "reference": "tags/6.4.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/advanced-custom-fields.6.4.2.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/advanced-custom-fields/"
         }
     ],
     "packages-dev": [],
