@@ -1,0 +1,10 @@
+.git
+.gitignore
+.dockerignore
+Dockerfile
+docker-compose.yml
+README.md
+vendor/
+wp-content/uploads/
+wp-content/cache/
+*.log 

@@ -1,18 +1,7 @@
-# WordPress specific files
-wp-config.php
-wp-config-local.php
-wp-content/advanced-cache.php
-wp-content/backup-db/
-wp-content/backups/
-wp-content/blogs.dir/
-wp-content/cache/
-wp-content/upgrade/
-wp-content/uploads/
-wp-content/mu-plugins/
-wp-content/wp-cache-config.php
-wp-content/plugins/hello.php
+# Composer dependencies
+/vendor/
 
-# WordPress core
+# WordPress core installed by Docker. We only commit our custom code.
 /wp-admin/
 /wp-includes/
 /wp-*.php
@@ -21,59 +10,22 @@ wp-content/plugins/hello.php
 /license.txt
 /readme.html
 
-# Configuration files
-.htaccess
-.htpasswd
+# Managed content - these are installed by Composer
+/wp-content/plugins/
+/wp-content/themes/
 
-# Log files
-*.log
-error_log
-access_log
-
-# Cache files
-.sass-cache/
-*.css.map
-*.sass.map
-*.scss.map
-
-# Environment files
-.env
-.env.*
-!.env.example
+# User-generated content and sensitive files
+/wp-content/uploads/
+/wp-config.php
+/.htaccess
 
 # OS generated files
 .DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
 Thumbs.db
 
-# Editor directories and files
-.idea/
-.vscode/
-*.sublime-project
-*.sublime-workspace
-*.swp
-*.swo
-
-# Node modules and build artifacts
+# Build artifacts & logs
+*.log
+npm-debug.log
 /node_modules/
-/dist/
 /build/
-
-# Composer
-/vendor/
-composer.phar
-
-# Docker
-.docker/data/
-
-# Exclude all plugins except custom ones
-/wp-content/plugins/*
-!/wp-content/plugins/custom_songs_type/
-
-# Exclude all themes except custom ones
-/wp-content/themes/*
-!/wp-content/themes/twentywentyfive-child/ 
+/dist/ 
