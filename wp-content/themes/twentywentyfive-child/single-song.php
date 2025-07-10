@@ -15,5 +15,11 @@ if (have_posts()) :
 else :
     echo '<p>No songs found.</p>';
 endif;
+?>
 
-get_footer(); // Include the footer
+<p style="margin-top: 20px;">
+    <a href="<?php echo esc_url( get_post_type_archive_link( 'song' ) ); ?>">&laquo; Back to All Songs</a>
+</p>
+
+<?php get_footer(); // Include the footer
+?>
