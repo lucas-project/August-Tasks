@@ -16,7 +16,7 @@
     "require": {
         "php": ">=7.4",
         "composer/installers": "^2.0",
-        "lucas-project/songs-plugin": "1.0.6",
+        "lucas-project/songs-plugin": "1.0.7",
         "wpackagist-plugin/advanced-custom-fields": "^6.4"
     },
     "extra": {

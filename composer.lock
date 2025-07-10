@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "07a425a3161af77b1925c4f79b716415",
+    "content-hash": "fda5ed4b63e1e08ecc3360bc18874e05",
     "packages": [
         {
             "name": "composer/installers",
@@ -154,16 +154,16 @@
         },
         {
             "name": "lucas-project/songs-plugin",
-            "version": "1.0.6",
+            "version": "1.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/lucas-project/songs-plugin.git",
-                "reference": "1ab49a0f374efde2104a4127188903441e47bcdc"
+                "reference": "b525907f8c067c16849f5254d9dbc46169ef4e15"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lucas-project/songs-plugin/zipball/1ab49a0f374efde2104a4127188903441e47bcdc",
-                "reference": "1ab49a0f374efde2104a4127188903441e47bcdc",
+                "url": "https://api.github.com/repos/lucas-project/songs-plugin/zipball/b525907f8c067c16849f5254d9dbc46169ef4e15",
+                "reference": "b525907f8c067c16849f5254d9dbc46169ef4e15",
                 "shasum": ""
             },
             "require": {
@@ -187,10 +187,10 @@
                 "wordpress"
             ],
             "support": {
-                "source": "https://github.com/lucas-project/songs-plugin/tree/1.0.6",
+                "source": "https://github.com/lucas-project/songs-plugin/tree/1.0.7",
                 "issues": "https://github.com/lucas-project/songs-plugin/issues"
             },
-            "time": "2025-07-10T09:44:11+00:00"
+            "time": "2025-07-10T14:07:17+00:00"
         },
         {
             "name": "wpackagist-plugin/advanced-custom-fields",
