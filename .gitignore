@@ -11,8 +11,9 @@
 /readme.html
 
 # Managed content - these are installed by Composer
-/wp-content/plugins/
-/wp-content/themes/
+/wp-content/plugins/*
+/wp-content/themes/*
+!/wp-content/themes/twentywentyfive-child/
 
 # User-generated content and sensitive files
 /wp-content/uploads/

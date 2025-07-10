@@ -1,13 +1,14 @@
 ### You can also access this document here, might help you read faster, sometimes
 [https://docs.google.com/document/d/1K5IbmNTkyHaFL1_wawHzJokFmr7carE7ZdTTKNQrFoc/edit?usp=sharing](https://docs.google.com/document/d/1K5IbmNTkyHaFL1_wawHzJokFmr7carE7ZdTTKNQrFoc/edit?usp=sharing)
 
+#### Make sure you activate plugin and child theme
 ### Development Key Web Addresses  
 [http://localhost:8080/](http://localhost:8080/)  
 [http://localhost:8080/?post\_type=song](http://localhost:8080/?post_type=song)  
 [http://localhost:8080/?song=song-3](http://localhost:8080/?song=song-3)
 
 ### To start docker, run:  
-*docker-compose up \-d*
+*docker-compose up -d*
 
 ### To start composer installing:  
 docker-compose exec wordpress composer install  
